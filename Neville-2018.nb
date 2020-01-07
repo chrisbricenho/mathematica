@@ -1,0 +1,247 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8558,        238]
+NotebookOptionsPosition[      8233,        221]
+NotebookOutlinePosition[      8586,        237]
+CellTagsIndexPosition[      8543,        234]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DifDivNewton", "[", 
+   RowBox[{"z2_", ",", "z1_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"MatF", ",", "MatX", ",", "MatP", ",", "DDN", ",", 
+      RowBox[{"Z1", "=", "z1"}], " ", ",", "x1", ",", "r", ",", 
+      RowBox[{"i", "=", "1"}], ",", 
+      RowBox[{"j", "=", "1"}], ",", "Pol", ",", 
+      RowBox[{"x", "=", "\"\<x\>\""}]}], "}"}], ",", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", "  ", 
+    RowBox[{
+     RowBox[{"MatX", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"(", "i", ")"}], ",", 
+          RowBox[{"(", "Z1", ")"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "  ", 
+     RowBox[{"MatF", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"(", "i", ")"}], ",", 
+          RowBox[{"(", "Z1", ")"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "<=", "Z1"}], ",", 
+       RowBox[{"i", "++"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"i", "<=", "Z1"}], ",", 
+         RowBox[{
+          RowBox[{"MatX", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "1"}], "]"}], "]"}], "=", 
+          RowBox[{"Evaluate", "[", 
+           RowBox[{
+           "Input", "[", "\"\<Ingrese nuevo valor para intervalo x \>\"", " ",
+             "]"}], "]"}]}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     "\t", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ChoiceDialog", "[", 
+         RowBox[{
+         "\"\<Seguidamente ingrese los valores de las imagenes de x en el \
+orden anterior\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{"\"\<OK\>\"", "\[Rule]", "\"\<1\>\""}], "}"}]}], "]"}], 
+        "\[Equal]", "\"\<1\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", "Z1"}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"i", "<=", "Z1"}], ",", 
+             RowBox[{
+              RowBox[{"MatF", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "1"}], "]"}], "]"}], "=", 
+              RowBox[{"Evaluate", "[", 
+               RowBox[{
+               "Input", "[", "\"\<Ingrese nuevo valor\>\"", " ", "]"}], 
+               "]"}]}]}], "]"}]}], "]"}], ";"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"DDN", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"j", "==", "1"}], ",", 
+          RowBox[{"MatF", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "j"}], "]"}], "]"}], ",", "0"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "z1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "z1"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"x1", "=", "1"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", " ", 
+      RowBox[{
+       RowBox[{"i", "=", "2"}], ",", 
+       RowBox[{"i", "\[LessEqual]", "Z1"}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"j", "=", "2"}], ",", 
+         RowBox[{"j", "\[LessEqual]", "i"}], ",", 
+         RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"DDN", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "j"}], "]"}], "]"}], "=", 
+          RowBox[{"(", 
+           RowBox[{"x1", "-", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"MatX", "[", 
+               RowBox[{"[", 
+                RowBox[{
+                 RowBox[{"i", "+", "1", "-", "j"}], ",", "1"}], "]"}], "]"}], 
+              "\[Times]", 
+              RowBox[{"DDN", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", 
+                 RowBox[{"j", "-", "1"}]}], "]"}], "]"}]}], ")"}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"x1", " ", "-", 
+               RowBox[{
+                RowBox[{"MatX", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", ",", "1"}], "]"}], "]"}], "\[Times]", 
+                RowBox[{"DDN", "[", 
+                 RowBox[{"[", 
+                  RowBox[{
+                   RowBox[{"i", "-", "1"}], ",", 
+                   RowBox[{"j", "-", "1"}]}], "]"}], "]"}]}]}], ")"}], "/", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"MatX", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", ",", "1"}], "]"}], "]"}], "-", 
+               RowBox[{"MatX", "[", 
+                RowBox[{"[", 
+                 RowBox[{
+                  RowBox[{"i", "+", "1", "-", "j"}], ",", "1"}], "]"}], 
+                "]"}]}], ")"}]}]}], ")"}]}]}], "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", " ", "[", " ", 
+      RowBox[{"DDN", " ", "//", "MatrixForm"}], "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"DifDivNewton", "[", 
+  RowBox[{"Evaluate", "[", 
+   RowBox[{
+    RowBox[{
+    "Input", "[", 
+     "\"\<Ingrese el valor de la varible x para la Funci\[OAcute]n F(x)\>\"", 
+     "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+    "Input", "[", "\"\<Ingrese el tama\[NTilde]o de la tabla\>\"", "]"}]}], 
+   "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.5809458201561747`*^9, 3.5809458975700336`*^9}, {
+  3.580946379836128*^9, 3.580946591094801*^9}, {3.736558331812415*^9, 
+  3.736558340628251*^9}, {3.73655902158258*^9, 3.7365590559773483`*^9}, {
+  3.736559090406535*^9, 3.7365590978315973`*^9}, {3.736559177258657*^9, 
+  3.7365591899549*^9}, {3.736559224756998*^9, 3.7365592527357187`*^9}, {
+  3.7366174576622753`*^9, 3.736617458533939*^9}, {3.73663457201025*^9, 
+  3.7366345727116833`*^9}, {3.736634721089711*^9, 3.7366347708278093`*^9}, {
+  3.736634812424757*^9, 3.7366348460376577`*^9}, {3.7366350782071257`*^9, 
+  3.7366350786445017`*^9}, {3.7366351657506857`*^9, 3.736635173432167*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0.51037`", "0", "0", "0", "0"},
+     {"0.52078`", "0.5725099999999993`", "0", "0", "0"},
+     {"0.51041`", "1.1264580000000022`", 
+      RowBox[{"-", "0.31785600000000835`"}], "0", "0"},
+     {"0.48133`", "1.4801379999999988`", "2.565673400000017`", 
+      RowBox[{"-", "7.175389466666736`"}], "0"},
+     {"0.43591`", "1.605254000000002`", "5.008356399999989`", 
+      "0.28809178666677404`", 
+      RowBox[{"-", "25.940046706667125`"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{3.7366352201425667`*^9, 3.7366361928292007`*^9}]
+}, Open  ]]
+},
+WindowSize->{834, 387},
+WindowMargins->{{154, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6570, 169, 745, "Input"],
+Cell[7153, 193, 1064, 25, 86, "Print"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

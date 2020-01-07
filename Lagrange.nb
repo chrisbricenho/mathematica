@@ -1,0 +1,611 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23920,        602]
+NotebookOptionsPosition[     22940,        568]
+NotebookOutlinePosition[     23282,        583]
+CellTagsIndexPosition[     23239,        580]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Lagrange", "[", 
+    RowBox[{"X0_", ",", "G0_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "=", "X0"}], ",", 
+       RowBox[{"G", "=", "G0"}], ",", 
+       RowBox[{"fx", "=", "X0"}], ",", " ", 
+       RowBox[{"n", "=", "0"}], " ", ",", 
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"k", "=", "1"}], ",", " ", "nume", ",", " ", "deno", ",", " ", 
+       RowBox[{"Polinomio", "=", "\"\<\>\""}], ",", 
+       RowBox[{"s", "=", "1"}]}], "}"}], ",", " ", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"n", "=", 
+       RowBox[{"Length", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"s", "=", "1"}], ",", 
+        RowBox[{"s", "\[LessEqual]", "n"}], ",", " ", 
+        RowBox[{"s", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          SubscriptBox["fx", 
+           RowBox[{"\[LeftDoubleBracket]", "s", "\[RightDoubleBracket]"}]], 
+          "=", 
+          RowBox[{"G", "[", 
+           SubscriptBox["x", 
+            RowBox[{"\[LeftDoubleBracket]", "s", "\[RightDoubleBracket]"}]], 
+           "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+      "Print", "[", 
+       "\"\<EJERCICIO 2.2 \\nEl Polinomio de lagrange es: \\n\>\"", "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"i", "=", "1"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"i", "\[LessEqual]", "n"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"nume", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", 
+          RowBox[{"deno", "=", "1"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"k", "=", "1"}], ";", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"While", "[", 
+            RowBox[{
+             RowBox[{"k", "\[LessEqual]", "n"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", " ", "[", 
+               RowBox[{
+                RowBox[{"i", "\[NotEqual]", "k"}], ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"nume", "=", 
+                  RowBox[{
+                   RowBox[{"ToString", "[", 
+                    StyleBox["nume", "TI"], "]"}], "<>", "\"\<(x-\>\"", "<>", 
+                   RowBox[{"ToString", "[", 
+                    SubscriptBox["x", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "k", "\[RightDoubleBracket]"}]], 
+                    "]"}], "<>", "\"\<)\>\""}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"deno", "=", 
+                  RowBox[{"deno", "*", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    SubscriptBox["x", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]], 
+                    "-", 
+                    SubscriptBox["x", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "k", "\[RightDoubleBracket]"}]]}],
+                     ")"}]}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"k", "=", 
+               RowBox[{"k", "+", "1"}]}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";;", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{"ToString", "[", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                SubscriptBox["fx", 
+                 RowBox[{
+                 "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]], 
+                "]"}], "<>", "nume"}], 
+              RowBox[{"ToString", "[", "deno", "]"}]], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"i", "\[NotEqual]", "n"}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Print", "[", "\"\<+\>\"", "]"}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"i", "=", 
+           RowBox[{"i", "+", "1"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";;",
+        "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", "\"\<\\n\\n\>\"", "]"}]}]}]}], 
+    "\[IndentingNewLine]", " ", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DiferenciasDivididas", "[", 
+    RowBox[{"Vx_", ",", "Fx_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"n", "=", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "Vx", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "Tabla", ",", 
+       RowBox[{"Px", "=", "0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Tabla", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{"\"\< \>\"", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "n"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "n"}], "}"}]}], "]"}]}], ";", " ", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", 
+        RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+        RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Tabla", "=", 
+          RowBox[{"ReplacePart", "[", 
+           RowBox[{"Tabla", ",", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1"}], "}"}], "\[Rule]", 
+             RowBox[{"Fx", "[", 
+              RowBox[{"Vx", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "]"}]}]}], "]"}]}], ";"}]}], 
+       " ", "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"j", "=", "2"}], ",", 
+         RowBox[{"j", "\[LessEqual]", "n"}], ",", 
+         RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"a", "=", "1"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"b", "=", "j"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"i", "=", "2"}], ",", 
+            RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+            RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"j", "\[LessEqual]", "i"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Tabla", "=", 
+                RowBox[{"ReplacePart", "[", 
+                 RowBox[{"Tabla", ",", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"i", ",", "j"}], "}"}], "\[Rule]", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Tabla", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", 
+                    RowBox[{"j", "-", "1"}]}], "]"}], "]"}], "-", 
+                    RowBox[{"Tabla", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"i", "-", "1"}], ",", 
+                    RowBox[{"j", "-", "1"}]}], "]"}], "]"}]}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Vx", "[", 
+                    RowBox[{"[", "b", "]"}], "]"}], "-", 
+                    RowBox[{"Vx", "[", 
+                    RowBox[{"[", "a", "]"}], "]"}]}], ")"}]}]}]}], "]"}]}], 
+               ";", "\[IndentingNewLine]", 
+               RowBox[{"a", "++"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"b", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+           "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], ";;",
+        "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{
+        "\"\<EJERCICIO 2.3 \\nLa tabla de diferencias divididas es: \>\"", 
+         RowBox[{"MatrixForm", "[", "Tabla", "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", 
+        RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+        RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Px", "=", 
+          RowBox[{"Px", "+", 
+           RowBox[{"Tabla", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "i"}], "]"}], "]"}]}]}], ";", " ", 
+         "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"j", "=", "1"}], ",", 
+           RowBox[{"j", "\[LessEqual]", "i"}], ",", 
+           RowBox[{"j", "++"}], ",", " ", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Vx", "[", 
+               RowBox[{"[", "j", "]"}], "]"}], "<", "0"}], ",", " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Px", "=", 
+              RowBox[{"Px", "*", 
+               RowBox[{"(", 
+                RowBox[{"x", "-", 
+                 RowBox[{"1", "*", 
+                  RowBox[{"Vx", "[", 
+                   RowBox[{"[", "j", "]"}], "]"}]}]}], ")"}]}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Px", "=", 
+              RowBox[{"Px", "*", 
+               RowBox[{"(", 
+                RowBox[{"x", "-", 
+                 RowBox[{"Vx", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}]}]}], 
+            "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<\\n El polinomio interpolante es: \>\"", ",", 
+        RowBox[{"Simplify", "[", "Px", "]"}]}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"R", "[", "z_", "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "3"}], 
+     SuperscriptBox["z", "4"]}], "-", 
+    RowBox[{"2", "z"}], "-", "6"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<EJERCICIO 2.1\>\"", ",", "\[IndentingNewLine]", 
+    "\"\<\\nR(1) = 0! = \>\"", ",", " ", 
+    RowBox[{"R", "[", "1", "]"}], ",", "\[IndentingNewLine]", 
+    "\"\<\\nR(2) = 1! = \>\"", ",", " ", 
+    RowBox[{"R", "[", "2", "]"}], ",", "\[IndentingNewLine]", 
+    "\"\<\\nR(3) = 2! = \>\"", ",", " ", 
+    RowBox[{"R", "[", "3", "]"}], ",", "\[IndentingNewLine]", 
+    "\"\<\\nR(4) = 3! = \>\"", ",", " ", 
+    RowBox[{"R", "[", "4", "]"}], ",", "\[IndentingNewLine]", 
+    "\"\<\\nR(5) = 4! = \>\"", ",", " ", 
+    RowBox[{"R", "[", "5", "]"}], ",", "\[IndentingNewLine]", 
+    "\"\<\\nR(6) = 5! = \>\"", ",", " ", 
+    RowBox[{"R", "[", "6", "]"}], ",", " ", "\"\<\\n\\n\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Lagrange", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", " ", "6"}], 
+      "}"}], ")"}], ",", "R"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"DiferenciasDivididas", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", " ", "6"}], 
+       "}"}], ")"}], ",", "R"}], "]"}], ";"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", "\"\<Ejercico 2.4 \\n\\n\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.674911429451658*^9, 3.674911565647116*^9}, {
+   3.674911597307629*^9, 3.6749117156094446`*^9}, {3.6749117530810947`*^9, 
+   3.6749118126004696`*^9}, {3.6749118462844553`*^9, 
+   3.6749118525035295`*^9}, {3.67491188989313*^9, 3.6749119253894014`*^9}, {
+   3.6749122311543274`*^9, 3.674912341921245*^9}, {3.674912446839925*^9, 
+   3.674912452611032*^9}, {3.6749124849475985`*^9, 3.6749125438775325`*^9}, {
+   3.674912609238089*^9, 3.6749126250052934`*^9}, {3.6749126939102182`*^9, 
+   3.6749127389353952`*^9}, {3.674913609676899*^9, 3.674913656981558*^9}, {
+   3.6749136967448964`*^9, 3.674913697067097*^9}, {3.674915989529184*^9, 
+   3.674916032488778*^9}, {3.6749160917869678`*^9, 3.6749162712814646`*^9}, 
+   3.674916329846102*^9, {3.6749164178287416`*^9, 3.67491646238208*^9}, {
+   3.674916516156366*^9, 3.6749165182448235`*^9}, {3.7372033157219987`*^9, 
+   3.7372033423668456`*^9}, {3.7372033857847223`*^9, 3.7372034235377884`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"EJERCICIO 2.1\"\>", 
+   "\[InvisibleSpace]", "\<\"\\nR(1) = 0! = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "11"}], "\[InvisibleSpace]", "\<\"\\nR(2) = 1! = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "58"}], "\[InvisibleSpace]", "\<\"\\nR(3) = 2! = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "255"}], "\[InvisibleSpace]", "\<\"\\nR(4) = 3! = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "782"}], "\[InvisibleSpace]", "\<\"\\nR(5) = 4! = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "1891"}], "\[InvisibleSpace]", "\<\"\\nR(6) = 5! = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "3906"}], "\[InvisibleSpace]", "\<\"\\n\\n\"\>"}],
+  SequenceForm[
+  "EJERCICIO 2.1", "\nR(1) = 0! = ", -11, "\nR(2) = 1! = ", -58, 
+   "\nR(3) = 2! = ", -255, "\nR(4) = 3! = ", -782, "\nR(5) = 4! = ", -1891, 
+   "\nR(6) = 5! = ", -3906, "\n\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.7372034279525957`*^9}}],
+
+Cell[BoxData["\<\"EJERCICIO 2.2 \\nEl Polinomio de lagrange es: \\n\"\>"], \
+"Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.7372034279525957`*^9}}],
+
+Cell[BoxData["\<\"-11(x-2)(x-3)(x-4)(x-5)(x-6)\\n----------------------------\
+\\n            -120\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.7372034279525957`*^9}}],
+
+Cell[BoxData["\<\"+\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"-58(x-1)(x-3)(x-4)(x-5)(x-6)\\n----------------------------\
+\\n             24\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"+\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"-255(x-1)(x-2)(x-4)(x-5)(x-6)\\n----------------------------\
+-\\n             -12\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"+\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"-782(x-1)(x-2)(x-3)(x-5)(x-6)\\n----------------------------\
+-\\n             12\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"+\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"-1891(x-1)(x-2)(x-3)(x-4)(x-6)\\n---------------------------\
+---\\n             -24\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"+\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"-3906(x-1)(x-2)(x-3)(x-4)(x-5)\\n---------------------------\
+---\\n             120\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"\\n\\n\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\<\"EJERCICIO 2.3 \\nLa tabla de diferencias divididas es: \"\>", 
+  " ", 
+  TagBox[
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{
+       "-", "11"}], "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+      {
+       RowBox[{"-", "58"}], 
+       RowBox[{
+       "-", "47"}], "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+      {
+       RowBox[{"-", "255"}], 
+       RowBox[{"-", "197"}], 
+       RowBox[{"-", "75"}], "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+      {
+       RowBox[{"-", "782"}], 
+       RowBox[{"-", "527"}], 
+       RowBox[{"-", "165"}], 
+       RowBox[{"-", "30"}], "\<\" \"\>", "\<\" \"\>"},
+      {
+       RowBox[{"-", "1891"}], 
+       RowBox[{"-", "1109"}], 
+       RowBox[{"-", "291"}], 
+       RowBox[{"-", "42"}], 
+       RowBox[{"-", "3"}], "\<\" \"\>"},
+      {
+       RowBox[{"-", "3906"}], 
+       RowBox[{"-", "2015"}], 
+       RowBox[{"-", "453"}], 
+       RowBox[{"-", "54"}], 
+       RowBox[{"-", "3"}], "0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.7]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+   Function[BoxForm`e$, 
+    MatrixForm[BoxForm`e$]]]}]], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\n El polinomio interpolante es: \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "6"}], "+", "x"}], ")"}], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "x"}], ")"}], "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "4"}], "+", "x"}], ")"}], "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "3"}], "+", "x"}], ")"}], "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", "x"}], ")"}], "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", "x"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "3"}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "4"}], "+", "x"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "3"}], "+", "x"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "2"}], "+", "x"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "x"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "30"}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "3"}], "+", "x"}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "2"}], "+", "x"}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "x"}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{"147", "-", 
+            RowBox[{"86", " ", "x"}], "+", 
+            RowBox[{"3", " ", 
+             SuperscriptBox["x", "2"]}], "+", 
+            RowBox[{"11", " ", 
+             SuperscriptBox["x", "3"]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}],
+  SequenceForm[
+  "\n El polinomio interpolante es: ", (-6 + $CellContext`x) (-5 + \
+$CellContext`x)^2 (-4 + $CellContext`x)^2 (-3 + $CellContext`x)^2 (-2 + \
+$CellContext`x)^2 (-1 + $CellContext`x)^2 (-3 + (-4 + $CellContext`x) (-3 + \
+$CellContext`x) (-2 + $CellContext`x) (-1 + $CellContext`x) (-30 - (-3 + \
+$CellContext`x) (-2 + $CellContext`x) (-1 + $CellContext`x) (147 - 
+       86 $CellContext`x + 3 $CellContext`x^2 + 11 $CellContext`x^3)))],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}],
+
+Cell[BoxData["\<\"Ejercico 2.4 \\n\\n\"\>"], "Print",
+ CellChangeTimes->{
+  3.6749163386914134`*^9, 3.6749164665630283`*^9, 3.674916523363467*^9, 
+   3.737203173764745*^9, {3.7372033455346513`*^9, 3.7372033556278687`*^9}, {
+   3.737203409621564*^9, 3.737203427968196*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 686},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 12666, 296, 1583, "Input"],
+Cell[CellGroupData[{
+Cell[13271, 322, 1150, 23, 176, "Print"],
+Cell[14424, 347, 306, 5, 62, "Print"],
+Cell[14733, 354, 335, 5, 62, "Print"],
+Cell[15071, 361, 254, 4, 23, "Print"],
+Cell[15328, 367, 332, 5, 62, "Print"],
+Cell[15663, 374, 254, 4, 23, "Print"],
+Cell[15920, 380, 335, 5, 62, "Print"],
+Cell[16258, 387, 254, 4, 23, "Print"],
+Cell[16515, 393, 334, 5, 62, "Print"],
+Cell[16852, 400, 254, 4, 23, "Print"],
+Cell[17109, 406, 337, 5, 62, "Print"],
+Cell[17449, 413, 254, 4, 23, "Print"],
+Cell[17706, 419, 337, 5, 62, "Print"],
+Cell[18046, 426, 259, 4, 62, "Print"],
+Cell[18308, 432, 1730, 50, 122, "Print"],
+Cell[20041, 484, 2596, 74, 64, "Print"],
+Cell[22640, 560, 272, 4, 62, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
